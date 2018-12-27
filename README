@@ -1,0 +1,15 @@
+# Stupid spring boot template
+Kind of opinonated template using the following technologies
+* Kotlin
+* Gradle
+* Spring boot
+
+## Build the fat jar
+
+```bash
+gradle build
+```
+
+### Run the jar
+```bash
+```
