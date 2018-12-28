@@ -7,9 +7,20 @@ Kind of opinonated template using the following technologies
 ## Build the fat jar
 
 ```bash
-gradle build
+./gradlew build
 ```
 
 ### Run the jar
 ```bash
+./gradlew bootRun
+```
+
+### Build docker container
+```bash
+docker build -t template
+```
+
+### run docker container
+```bash
+docker run template
 ```
