@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gnuton/kotlin-template.svg?branch=master)](https://github.com/gnuton/kotlin-template)
+
 # Stupid spring boot template
 Kind of opinonated template using the following technologies
 * Kotlin
