@@ -8,6 +8,6 @@ RUN ./gradlew --no-daemon build
 
 ## Runtime section
 FROM openjdk:${VERSION}-jre
-COPY ${JAR_FILE} /bin/runner/run.jar
+COPY --from=BUILD ${JAR_FILE} /bin/runner/run.jar
 WORKDIR /bin/runner
 CMD ["java","-jar","run.jar"]
