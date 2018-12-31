@@ -1,13 +1,13 @@
-## Builder section
-ARG VERSION=8u151
-ARG JAR_FILE=/src/build/libs/template-0.0.1-SNAPSHOT.jar
-FROM openjdk:${VERSION}-jdk as BUILD
+ARG VERSION=8
+FROM openjdk:${VERSION}-jdk-slim AS build 
 COPY . /src
 WORKDIR /src
 RUN ./gradlew --no-daemon build
 
-## Runtime section
-FROM openjdk:${VERSION}-jre
-COPY --from=BUILD ${JAR_FILE} /bin/runner/run.jar
-WORKDIR /bin/runner
-CMD ["java","-jar","run.jar"]
+FROM openjdk:${VERSION}-jre-alpine AS runtime 
+ARG APP_NAME=template
+USER nobody
+COPY --from=build /src/build/libs/${APP_NAME}.jar /app/app.jar
+
+WORKDIR /app
+CMD ["java","-jar","app.jar"]
